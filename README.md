@@ -14,6 +14,7 @@ Install spotipy
 ```
 $ sudo pip3 install spotipy
 ```
+
 ### Setup
 
 Create a file called config.py in directory of searchScrapper.py and in that file copy and paste
@@ -21,12 +22,14 @@ Create a file called config.py in directory of searchScrapper.py and in that fil
 CLIENT_ID = ''
 CLIENT_SECRET = ''
 ```
+
 Login to Spotify for Developers and go to your dashboard and select “create client id” and follow the instructions. Spotify are not too strict on providing permissions so put anything you like when they ask for commercial application. 
 Copy/Paste client id and client secret in their respective fields, inside the quotation marks.
 ```
 CLIENT_ID = 'aflsdkjflk'
 CLIENT_SECRET = 'lskadjflk'
 ```
+
 If you want to download the songs onto your playlist go to the commercial application you have created and click on edit settings. 
 
 Under redirect URIs add
@@ -47,6 +50,7 @@ To run
 ```
 $ python3 searchScrapper.py
 ```
+
 ## Note
 
 Example of how username and playlist id should look like
