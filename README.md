@@ -45,7 +45,7 @@ $ chmod +x searchScrapper.py
 To run
 
 ```
-$ ./searchScrapper.py
+$ python3 searchScrapper.py
 ```
 
 ## Dependencies
