@@ -50,9 +50,10 @@ $ python3 searchScrapper.py
 ## Note
 
 Example of how username and playlist id should look like
-
+```
 playlist_id = '3ROdXXLjp7Td2a2tuOFuu3'
 username = '21kvbld5upxx22lsdadxnadfsadff'
+```
 
 ## Dependencies
 
