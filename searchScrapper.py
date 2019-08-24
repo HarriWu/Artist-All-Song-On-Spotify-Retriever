@@ -1,9 +1,11 @@
+#! /usr/bin/env python3
 import spotipy
 from spotipy import util
 from spotipy.oauth2 import SpotifyClientCredentials
 import time, random
-#Spotify API client id and client secret imports
+# Spotify API client id and client secret imports
 from config import *
+
 
 def get_all_uris(arr):
     """ Get all uris in arr.
@@ -108,35 +110,8 @@ def add_songs_to_playlist(username, playlist_id, client_id, client_secret, spoti
         print('Unable to get token')
 
 
-
-def search_artist(sp, name):
-    """ Search for and returning artist.
-
-    Args:
-        sp: Spotify object to access API.
-        name: Name of artist.
-
-    Return:
-        Artist if found,
-        None for otherwise.
-    """
-    # Search for artist
-    result = sp.search(name)
-    n = 0
-
-    while result['tracks']['items'][n]['artists'] is not None:
-        for i in result['tracks']['items'][n]['artists']:
-            if i.get('name') == name:
-                return i
-
-        n += 1
-
-    return None
-
-
 def main():
     """ Interface to receive user input.
-
     """
     client_credentials_manager = SpotifyClientCredentials(client_id=CLIENT_ID, client_secret=CLIENT_SECRET)
     # Spotify object to access API
@@ -144,10 +119,13 @@ def main():
 
     # Get artist to search
     name = input("Artist name: ")
-    # Get artist obj
-    artist_obj = search_artist(sp, name)
+    results = sp.search(q='artist:' + name, type='artist')
+
     # Get artist uri
-    artist_uri = artist_obj.get('uri')
+    for i in results['artists']['items']:
+        if i['uri'] is not None:
+            artist_uri = i['uri']
+            break
 
     # Get all of artist's songs
     sp_singles = sp.artist_albums(artist_uri, album_type='single')
